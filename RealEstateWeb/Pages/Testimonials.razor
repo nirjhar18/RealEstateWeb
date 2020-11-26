@@ -1,0 +1,180 @@
+﻿@page "/testimonials"
+@inherits RealEstateWeb.BaseClasses.TestimonialBase
+
+<div class="body-content">
+    <h3>What others are saying</h3>
+    <hr />
+    <div class="content">
+        <div class="newTestimonial">
+            <MatButton Raised="true" Icon="add_box" OnClick="@OpenTestimonialDialog">Add a new testimonial</MatButton>
+        </div>
+        <MatDialog @bind-IsOpen="@dialogTestimonialIsOpen">
+            <MatDialogTitle>Add a testimonial</MatDialogTitle>
+            <hr />
+            <MatDialogContent>
+                <EditForm Model="@Testimonial" OnValidSubmit="HandleValidSubmit" class="formTestimonial">
+                    <DataAnnotationsValidator />
+                    <div class="form-group row">
+                        <label for="name" class="col-sm-2 col-form-label">
+                            Name
+                        </label>
+                        <div class="col-sm-10">
+                            <InputText id="name" class="form-control" placeholder="Name"
+                                       @bind-Value="Testimonial.Name" />
+                            <ValidationMessage For="@(()=>Testimonial.Name)" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="email" class="col-sm-2 col-form-label">
+                            Email
+                        </label>
+                        <div class="col-sm-10">
+                            <InputText id="email" class="form-control" placeholder="Email"
+                                       @bind-Value="Testimonial.Email" />
+                            <ValidationMessage For="@(()=>Testimonial.Email)" />
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="message" class="col-sm-2 col-form-label">
+                            Message
+                        </label>
+                        <div class="col-sm-10">
+                            <InputTextArea id="lastName" class="form-control" placeholder="Message"
+                                           @bind-Value="Testimonial.Message" />
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="name" class="col-sm-2 col-form-label">
+                            Rating
+                        </label>
+                        <div class="col-sm-10">
+                            <div class="rate">
+                                @for (int i = 5; i >= 1; i--)
+                                {
+                                    var differentStars = "star" + @i;
+
+
+                                    <input type="radio" id=@differentStars name="rate" value=@i @onchange="onChangeStar" />
+
+                                    <label for=@differentStars title="text">@i stars</label>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <MatDialogActions>
+
+                        @*<MatButton OnClick="@OkClick">Submit</MatButton>*@
+                        <MatButton class="btn btn-primary" type="submit">Submit</MatButton>
+                        <MatButton OnClick="@(e => { dialogTestimonialIsOpen = false; })" type="button">Cancel</MatButton>
+                    </MatDialogActions>
+
+                </EditForm>
+
+
+            </MatDialogContent>
+
+        </MatDialog>
+
+        <div class="testimonial">
+
+            <div class="mat-elevation-z3">
+                <div class="quotes-image">
+                    <img src="images/quotes_80.png" />
+                </div>
+                <div class="testimonialContent">
+                    <span>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Aenean mattis luctus auctor. Aliquam mattis ipsum et finibus posuere. Morbi varius dui ac sapien tincidunt,
+                        mollis vulputate libero vehicula. Praesent efficitur risus in lacus gravida lacinia.
+                    </span>
+                </div>
+                <div class="testimonialBy">
+                    <hr />
+                    <span class="testimonialRating">★ ★ ★ ★ ★ </span>
+                    <span class="testimonialByContent"> - Nirjhar</span>
+                </div>
+            </div>
+
+            <div class="mat-elevation-z3">
+                <div class="quotes-image">
+                    <img src="images/quotes_80.png" />
+                </div>
+                <div class="testimonialContent">
+                    <span>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Aenean mattis luctus auctor. Aliquam mattis ipsum et finibus posuere. Morbi varius dui ac sapien tincidunt,
+                        mollis vulputate libero vehicula. Praesent efficitur risus in lacus gravida lacinia.
+                    </span>
+                </div>
+                <div class="testimonialBy">
+                    <hr />
+                    <span class="testimonialRating">★ ★ ★ ★ ★ </span>
+                    <span class="testimonialByContent"> - Nirjhar</span>
+                </div>
+
+            </div>
+            <div class="mat-elevation-z3">
+                <div class="quotes-image">
+                    <img src="images/quotes_80.png" />
+                </div>
+                <div class="testimonialContent">
+                    <span>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Aenean mattis luctus auctor. Aliquam mattis ipsum et finibus posuere. Morbi varius dui ac sapien tincidunt,
+                        mollis vulputate libero vehicula. Praesent efficitur risus in lacus gravida lacinia.
+                    </span>
+                </div>
+                <div class="testimonialBy">
+                    <hr />
+                    <span class="testimonialRating">★ ★ ★ ★ ★ </span>
+                    <span class="testimonialByContent"> - Nirjhar</span>
+                </div>
+
+            </div>
+            <div class="mat-elevation-z3">
+                <div class="quotes-image">
+                    <img src="images/quotes_80.png" />
+                </div>
+                <div class="testimonialContent">
+                    <span>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Aenean mattis luctus auctor. Aliquam mattis ipsum et finibus posuere. Morbi varius dui ac sapien tincidunt,
+                        mollis vulputate libero vehicula. Praesent efficitur risus in lacus gravida lacinia.
+                    </span>
+                </div>
+                <div class="testimonialBy">
+                    <hr />
+                    <span class="testimonialRating">★ ★ ★ ★ ★ </span>
+                    <span class="testimonialByContent"> - Nirjhar</span>
+                </div>
+
+            </div>
+            <div class="mat-elevation-z3">
+                <div class="quotes-image">
+                    <img src="images/quotes_80.png" />
+                </div>
+                <div class="testimonialContent">
+                    <span>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Aenean mattis luctus auctor. Aliquam mattis ipsum et finibus posuere. Morbi varius dui ac sapien tincidunt,
+                        mollis vulputate libero vehicula. Praesent efficitur risus in lacus gravida lacinia.
+                    </span>
+                </div>
+                <div class="testimonialBy">
+                    <hr />
+                    <span class="testimonialRating">★ ★ ★ ★ ★ </span>
+                    <span class="testimonialByContent"> - Nirjhar</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

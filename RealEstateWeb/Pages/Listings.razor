@@ -1,0 +1,49 @@
+﻿
+@page "/listings"
+@inherits RealEstateWeb.BaseClasses.PropertiesListBase
+<div class="body-content">
+    <h3>Listings</h3>
+    <hr />
+
+    <style>
+        .demo-mat-card {
+            max-width: 400px;
+            float: left;
+            margin-left: 10px;
+            margin-bottom: 10px;
+        }
+
+        .demo-mat-card-content {
+            padding: 1rem;
+        }
+
+        .demo-mat-card-clean-margin {
+            margin: 0px;
+        }
+    </style>
+    @foreach (var property in Properties)
+    {
+        <div class="property-card">
+            <a href=@property.PropertyUrl>
+                <MatCard class="demo-mat-card">
+                    <MatCardContent>
+                        <MatCardMedia Wide="true" ImageUrl=@property.ImageUrl></MatCardMedia>
+                        <div class="demo-mat-card-content">
+                            <MatHeadline6 class="demo-mat-card-clean-margin">
+                                Headline
+                            </MatHeadline6>
+                            <MatSubtitle2 class="demo-mat-card-clean-margin">
+                                by Ben Balaban
+                            </MatSubtitle2>
+                        </div>
+
+                        <MatBody2 class="demo-mat-card-content demo-mat-card-clean-margin">
+                            @property.Address
+                        </MatBody2>
+                    </MatCardContent>
+                </MatCard>
+            </a>
+        </div>
+    }
+
+</div>

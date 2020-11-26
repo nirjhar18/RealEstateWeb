@@ -1,0 +1,62 @@
+﻿@page "/contactus"
+@inherits RealEstateWeb.BaseClasses.ContactUsBase
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<div class="body-content">
+
+    <EditForm Model="@ContactUs" OnValidSubmit="HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <h3>Contact Us</h3>
+        <hr />
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-form-label">
+                Name
+            </label>
+            <div class="col-sm-10">
+                <InputText id="name" class="form-control" placeholder="Name"
+                           @bind-Value="ContactUs.Name" />
+                <ValidationMessage For="@(()=>ContactUs.Name)" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="email" class="col-sm-2 col-form-label">
+                Email
+            </label>
+            <div class="col-sm-10">
+                <InputText id="email" class="form-control" placeholder="Email"
+                           @bind-Value="ContactUs.Email" />
+                <ValidationMessage For="@(()=>ContactUs.Email)" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="phone" class="col-sm-2 col-form-label">
+                Phone Number
+            </label>
+            <div class="col-sm-10">
+                <InputText id="phone" class="form-control" placeholder="Phone Number"
+                           @bind-Value="ContactUs.PhoneNumber" />
+                <ValidationMessage For="@(()=>ContactUs.PhoneNumber)" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="message" class="col-sm-2 col-form-label">
+                Message
+            </label>
+            <div class="col-sm-10">
+                <InputTextArea id="lastName" class="form-control" placeholder="Message"
+                               @bind-Value="ContactUs.Message" />
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Submit</button>
+
+    </EditForm>
+
+    <MatSnackbar @bind-IsOpen="@EmailSent" Stacked="true">
+        <MatSnackbarContent>Email has been sent.</MatSnackbarContent>
+    </MatSnackbar>
+
+</div>
