@@ -1,0 +1,4 @@
+C:\Users\nirjhar.vermani\source\repos\RealEstateWeb\RealEstateWeb\obj\Debug\netcoreapp2.0\RealEstateWeb.csprojAssemblyReference.cache
+C:\Users\nirjhar.vermani\source\repos\RealEstateWeb\RealEstateWeb\obj\Debug\netcoreapp2.0\RealEstateWeb.csproj.CoreCompileInputs.cache
+C:\Users\nirjhar.vermani\source\repos\RealEstateWeb\RealEstateWeb\obj\Debug\netcoreapp2.0\RealEstateWeb.AssemblyInfoInputs.cache
+C:\Users\nirjhar.vermani\source\repos\RealEstateWeb\RealEstateWeb\obj\Debug\netcoreapp2.0\RealEstateWeb.AssemblyInfo.cs
